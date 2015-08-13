@@ -1,0 +1,65 @@
+<!-- IF not $INCLUDED_JQUERY_COOKIE -->
+  <!-- INCLUDEJS @unilang_virtualkeyboard/js/jquery.cookie.1.4.1.js -->
+  <!-- DEFINE $INCLUDED_JQUERY_COOKIE = true -->
+<!-- ENDIF -->
+<!-- IF not $INCLUDED_UNILANG_VIRTUALKEYBOARD -->
+  <!-- INCLUDEJS @unilang_virtualkeyboard/js/virtualkeyboard.js -->
+  <!-- DEFINE $INCLUDED_UNILANG_VIRTUALKEYBOARD = true -->
+<!-- ENDIF -->
+
+<style>
+  #ulvkbd .ulvkbd-buttonlist label {
+    -webkit-border-radius: 4px; border-radius: 4px;
+    color: #39392e; background-color: #c1c2b7;
+    font-size: 0.9em;
+    padding: 6px 5px;
+    margin: 2px 0;
+  }
+  #ulvkbd .ulvkbd-buttonlist div {
+    display: inline;
+  }
+
+  #ulvkbd .ulvkbd-buttonlist div > span {
+    display: inline-block;
+  }
+  #ulvkbd .ulvkbd-buttonlist button {
+    min-width: 20px;
+    margin: 2px 0; padding: 5px;
+    border: 0;
+  }
+  #ulvkbd .ulvkbd-buttonlist button:hover {
+    cursor: pointer; cursor: hand;
+    background-color: #EBEBEB;
+  }
+</style>
+
+<div id="ulvkbd">
+
+  <div id="ulvkbd-toggle">
+    <a href="#" style="display: none">{L_VKBD_HIDE}</a>
+    <a href="#">{L_VKBD_SHOW}</a>
+
+    <span id="ulvkbd-layout-select" style="display: none">
+      <select style="display: inline">
+        <option value="IPA">{L_VKBD_IPA}</option>
+        <option value="Latn" data-showext="1">{L_VKBD_LATN}</option>
+        <option value="Cyrl" data-showext="1">{L_VKBD_CYRL}</option>
+        <option value="Grek" data-showext="1">{L_VKBD_GREK}</option>
+      </select>
+
+      <span id="ulvkbd-layout-extended-toggle" style="display: none">
+        <label>
+          <input type="checkbox" id="ulvkbd-layout-extended">
+          {L_VKBD_EXTENDED}
+        </label>
+      </span>
+    </span>
+  </div>
+
+  <div id="ulvkbd-box" data-loaded="0" data-uri="{U_AJAX_VK_CHARSETS}" style="display: none">
+    <em>{L_VKBD_PLEASE_WAIT}</em>
+  </div>
+
+  <div style="clear:both"></div>
+
+</div>
