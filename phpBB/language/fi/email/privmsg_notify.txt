@@ -1,0 +1,16 @@
+Subject: Olet saanut uuden yksityisviestin
+
+Terve {USERNAME},
+
+Olet saanut uuden yksityisviestin {SITENAME} -sivustolla käyttäjältä {AUTHOR_NAME}. 
+Viestin otsikko:
+
+{SUBJECT}
+
+Voit katsoa viestin napsauttamalla alapuolella olevaa linkkiä:
+
+{U_VIEW_MESSAGE}
+
+Olet pyytänyt ilmoitusta uusista yksityisviesteistä. Muistathan, että voit myös estää viestien ilmoittamisen muuttamalla asetusta omassa profiilissasi.
+
+{EMAIL_SIG}

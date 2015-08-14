@@ -1,0 +1,19 @@
+Subject: Tervetuloa {SITENAME} -keskustelufoorumille
+
+{WELCOME_MSG}
+
+Pidä tämä viesti tallessa mahdollista myöhempää käyttöä varten. Käyttäjätunnuksesi on:
+
+----------------------------
+Käyttäjätunnus: {USERNAME}
+
+Keskustelufoorumin osoite: {U_BOARD}
+----------------------------
+
+Käyttäjätunnuksesi on tällä hetkellä suljettu ja sivuston ylläpitäjän täytyy aktivoida se ensin, ennen kuin voit kirjautua sisään. Saat toisen ilmoituksen, kun tunnuksesi on käytössä.
+
+Älä unohda salasanaasi, sillä se on salakirjoitettuna tietokannassamme, emmekä voi sitä sieltä sinulle hakea. Mikäli unohdat salasanasi, voit pyytää uutta käyttämällä samaa sähköpostiosoitetta, kuin rekisteröityessäsi.
+
+Kiitos rekisteröitymisestä.
+
+{EMAIL_SIG}

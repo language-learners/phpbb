@@ -1,0 +1,13 @@
+Subject: Viestien valvojan ilmoitus - "{TOPIC_TITLE}"
+
+Hei {USERNAME},
+
+Saat tämän ilmoituksen koska viesti "{POST_SUBJECT}" sivulla "{SITENAME}" pitää hyväksyä.
+
+Jos haluat katsoa viestin, klikkaa oheista linkkiä:
+{U_VIEW_POST}
+
+Jos haluat katsoa viestin aihetta, klikkaa oheista linkkiä:
+{U_TOPIC}
+
+{EMAIL_SIG}

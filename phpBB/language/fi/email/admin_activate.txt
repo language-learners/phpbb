@@ -1,0 +1,13 @@
+Subject: Aktivoi käyttäjätunnus
+
+Terve,
+
+Käyttäjätunnus "{USERNAME}" on suljettu tai se on luotu äskettäin. Voit tarkistaa käyttäjän tiedot vierailemalla alapuolella olevassa linkissä.
+
+Linkin avulla voit tarkastella käyttäjän tietoja:
+{U_USER_DETAILS}
+
+Voit aktivoida tunnuksen käyttämällä tätä linkkiä.
+{U_ACTIVATE}
+
+{EMAIL_SIG}
