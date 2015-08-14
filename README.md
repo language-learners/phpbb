@@ -1,36 +1,36 @@
-[![phpBB](https://www.phpbb.com/theme/images/logos/blue/160x52.png)](http://www.phpbb.com)
+This is our custom fork of phpBB, for running the language forum site.
+Note that this is actually a manual reconstruction of what we're running,
+which will hopefully replace the current version sometime soon.
 
-## ABOUT
+Your code contributions are welcome!
 
-phpBB is a free bulletin board written in PHP.
+## How to Contribute
 
-## COMMUNITY
+[Bug reports](https://github.com/language-learners/phpbb/issues) are
+always welcome!
 
-Find support and lots more on [phpBB.com](http://www.phpbb.com)! Discuss the development on [area51](http://area51.phpbb.com/phpBB/index.php).
+If you want to propose a code change, here are a few principles:
 
-## INSTALLING DEPENDENCIES
+1. We strongly prefer to use phpBB 3.1 extensions that plug in cleanly
+   using the official extension API.  Actually editing the phpBB source
+   code is a last resort.
+2. If your proposed change involves a lot of work, or if it would
+   substantially alter the feel of the forum, please discuss it on the
+   forum first!
+3. You can submit your proposed change as an ordinary GitHub "Pull
+   Request."
 
-To be able to run an installation from the repo (and not from a pre-built package) you need to run the following commands to install phpBB's dependencies.
+## Installing Dependencies
+
+(from the main phpBB docs)
+
+To be able to run an installation from the repo (and not from a pre-built
+package) you need to run the following commands to install phpBB's
+dependencies.
 
 	cd phpBB
 	php ../composer.phar install --dev
 
-
-## CONTRIBUTE
-
-1. [Create an account on phpBB.com](http://www.phpbb.com/community/ucp.php?mode=register)
-2. [Create a ticket (unless there already is one)](http://tracker.phpbb.com/secure/CreateIssue!default.jspa)
-3. [Read our Git Contribution Guidelines](http://wiki.phpbb.com/Git); if you're new to git, also read [the introduction guide](http://wiki.phpbb.com/display/DEV/Working+with+Git)
-4. Send us a pull request
-
-## AUTOMATED TESTING
-
-We have unit and functional tests in order to prevent regressions. You can view the bamboo continuous integration [here](http://bamboo.phpbb.com) or check our travis build below:
-
-* [![Build Status](https://secure.travis-ci.org/phpbb/phpbb.png?branch=master)](http://travis-ci.org/phpbb/phpbb) **master** - Latest development version
-* [![Build Status](https://secure.travis-ci.org/phpbb/phpbb.png?branch=3.1.x)](http://travis-ci.org/phpbb/phpbb) **3.1.x** - Development of version 3.1.x
-* [![Build Status](https://secure.travis-ci.org/phpbb/phpbb.png?branch=3.0.x)](http://travis-ci.org/phpbb/phpbb) **3.0.x** - Development of version 3.0.x
-
-## LICENSE
+## License
 
 [GNU General Public License v2](http://opensource.org/licenses/gpl-2.0.php)
