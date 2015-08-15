@@ -1,0 +1,36 @@
+# -*- mode: yaml, yaml-indent-offset: 2 -*-
+
+# Run this task once to set everything up:
+#
+#   docker-compose run setup
+setup:
+  build: "."
+  links:
+    - "db"
+  volumes:
+    - ".:/src"
+  working_dir: "/src/phpBB"
+  command: "php ../composer.phar install"
+
+# Run this service to access a local copy of the site:
+#
+#   docker-compose up site
+site:
+  build: "."
+  links:
+    - "db"
+  volumes:
+    - ".:/src"
+    - "./phpBB:/var/www/html"
+  ports:
+    - "8000:80"
+
+# This is launched automatically to provide you with a MySQL database.
+db:
+  image: "mysql:5.5"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  volumes:
+    - "./db:/var/lib/mysql"
+  ports:
+    - "3306"

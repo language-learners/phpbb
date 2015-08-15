@@ -20,6 +20,52 @@ If you want to propose a code change, here are a few principles:
 3. You can submit your proposed change as an ordinary GitHub "Pull
    Request."
 
+## Running the site locally
+
+The recommended way to run the site locally is to install `docker` and
+`docker-compose`, which will allow you to run code inside "containers",
+which are sort of like lightweight virtual machines.  This will allow you
+to hack on the code without manually installing PHP, MySQL, and a bunch of
+different extensions and libraries.
+
+You can [get Docker from the official site](https://www.docker.com/).  Mac
+and Windows users should probably try using Docker Toolbox, which provides
+all the necessary command-line tools plus a GUI.
+
+```sh
+# Make certain folders accessible by PHP inside the Docker container.
+chmod -R a+w phpBB/cache/ phpBB/files/ phpBB/store/ phpBB/images/
+
+# Install the PHP packages required to run the site, and make sure the
+# database exists.  You generally only need to do this once, unless we
+# upgrade phpBB.
+docker-compose run --rm setup
+echo 'CREATE DATABASE phpbb;' | \
+  docker-compose run --rm setup mysql -h db -u root -proot
+
+# Start up the database and the site.
+docker-compose up site
+```
+
+From here, you can visit http://localhost:8000/ and finish the phpBB
+install process.  Fill in the following:
+
+- Database server hostname or DSN: db
+- Database name: phpbb
+- Database username: root
+- Database password: root
+
+You will be asked to install a `config.php` file.  This goes in the `phpBB`
+subdirectory of the repository, and you'll need to run:
+
+```sh
+chmod a+r phpBB/config.php
+```
+
+Once this is done, unfortunately, you'll need to hide the `phpBB/install`
+directory from phpBB.  But please don't check the hidden or removed version
+into `git`!
+
 ## Installing Dependencies
 
 (from the main phpBB docs)
