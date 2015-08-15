@@ -1,0 +1,13 @@
+Subject: 新主题通知 - "{FORUM_NAME}"
+
+你好 {USERNAME},
+
+你收到此通知是因为你正在看论坛 "{FORUM_NAME}" 在 "{SITENAME}"。此论坛已收到一个新主题<!-- IF AUTHOR_NAME --> 由 {AUTHOR_NAME}<!-- ENDIF -->， "{TOPIC_TITLE}"。你可以使用下面链接查看论坛，在你访问论坛之前再没有其他通知。
+
+{U_FORUM}
+
+如果你不想再看到此论坛你可以点论坛上方的 "取消订阅论坛" 链接或点下面的链接:
+
+{U_STOP_WATCHING_FORUM}
+
+{EMAIL_SIG}
