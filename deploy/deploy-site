@@ -3,6 +3,7 @@
 require 'fileutils'
 require 'net/ftp'
 require 'open3'
+require 'syncftp'
 
 # This is a bit of a gross hack.  Our webhost is dirt cheap, and reasonably
 # fast, but it doesn't support any kind of reasonable upload protocol
@@ -20,6 +21,11 @@ class Deploy
       local_path = File.join("phpBB", path)
       remote_filename = File.basename(path)
       remote_dirname = File.dirname(path)
+      unless ftp.remote_dir_exist?("/#{remote_dirname}")
+        puts "Creating directory #{remote_dirname}"
+        ftp.chdir("/")
+        ftp.mkdir_p(remote_dirname)
+      end
       ftp.chdir("/#{remote_dirname}")
       #puts "In #{remote_dirname}, upload #{local_path} as #{remote_filename}"
       puts(path)

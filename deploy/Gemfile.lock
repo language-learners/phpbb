@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mime-types (2.6.1)
+    syncftp (0.0.3)
+      mime-types
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  syncftp
+
+BUNDLED WITH
+   1.10.6

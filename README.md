@@ -76,6 +76,9 @@ Before starting, make sure that all your local changes are properly
 commited.
 
 ```sh
+# One-time setup.  (We'll make this better.)
+(cd deploy && bundle install)
+
 # Specify where to deploy to.
 export DEPLOY_HOST=foo.com DEPLOY_USER=bar
 # Leading space required to omit password from shell history.
