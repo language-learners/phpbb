@@ -66,16 +66,27 @@ Once this is done, unfortunately, you'll need to hide the `phpBB/install`
 directory from phpBB.  But please don't check the hidden or removed version
 into `git`!
 
-## Installing Dependencies
+## Deploying the site to production
 
-(from the main phpBB docs)
+This requires being a site admin with server access.  But you can do it as
+follows, if you run a secure machine where your environment variables are
+not vulnerable.
 
-To be able to run an installation from the repo (and not from a pre-built
-package) you need to run the following commands to install phpBB's
-dependencies.
+Before starting, make sure that all your local changes are properly
+commited.
 
-	cd phpBB
-	php ../composer.phar install --dev
+```sh
+# Specify where to deploy to.
+export DEPLOY_HOST=foo.com DEPLOY_USER=bar
+# Leading space required to omit password from shell history.
+ export DEPLOY_PASSWORD=CorrectHorseBatteryStaple
+
+# Run the deploy.
+deploy/deploy-site
+```
+
+The deploy is deliberately slowed down.  Once it's done, it will update the
+`deployed` branch to point to the version of the code that it just deployed.
 
 ## License
 
