@@ -32,7 +32,16 @@ You can [get Docker from the official site](https://www.docker.com/).  Mac
 and Windows users should probably try using Docker Toolbox, which provides
 all the necessary command-line tools plus a GUI.
 
+Assuming you have working copies of `docker` and `docker-compose`, and that
+your system supports a Unix-like Terminal with `git`, you can run the
+following commands:
+
 ```sh
+# Check out the source code from GitHub and switch into the source
+# directory before running the setup commands.
+git clone https://github.com/language-learners/phpbb.git
+cd phpbb
+
 # Make certain folders accessible by PHP inside the Docker container.
 chmod -R a+w phpBB/cache/ phpBB/files/ phpBB/store/ phpBB/images/
 
@@ -46,6 +55,12 @@ echo 'CREATE DATABASE phpbb;' | \
 # Start up the database and the site.
 docker-compose up site
 ```
+
+If you're on Windows, you'll need to make appropriate changes to the
+`chmod` and `echo` commands. If the `docker-compose` command is missing,
+or unable to find a working copy of `docker`, then please consult
+your Docker Toolbox or other Docker setup instructions, particular the
+part about getting the command-line tools correctly configured.
 
 From here, you can visit http://localhost:8000/ and finish the phpBB
 install process.  Fill in the following:
