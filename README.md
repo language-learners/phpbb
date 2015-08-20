@@ -42,25 +42,23 @@ following commands:
 git clone https://github.com/language-learners/phpbb.git
 cd phpbb
 
-# Make certain folders accessible by PHP inside the Docker container.
-chmod -R a+w phpBB/cache/ phpBB/files/ phpBB/store/ phpBB/images/
-
 # Install the PHP packages required to run the site, and make sure the
 # database exists.  You generally only need to do this once, unless we
 # upgrade phpBB.
 docker-compose run --rm setup
-echo 'CREATE DATABASE phpbb;' | \
-  docker-compose run --rm setup mysql -h db -u root -proot
 
 # Start up the database and the site.
 docker-compose up site
 ```
 
-If you're on Windows, you'll need to make appropriate changes to the
-`chmod` and `echo` commands. If the `docker-compose` command is missing,
-or unable to find a working copy of `docker`, then please consult
-your Docker Toolbox or other Docker setup instructions, particular the
-part about getting the command-line tools correctly configured.
+If the `docker-compose` command is missing, or unable to find a working
+copy of `docker`, then please consult your Docker Toolbox or other Docker
+setup instructions, particularly the part about getting the command-line
+tools correctly configured.  You may be told to run something like:
+
+```sh
+eval "$(docker-machine env default)"
+```
 
 From here, you can visit http://localhost:8000/ and finish the phpBB
 install process.  Fill in the following:
@@ -77,9 +75,19 @@ subdirectory of the repository, and you'll need to run:
 chmod a+r phpBB/config.php
 ```
 
-Once this is done, unfortunately, you'll need to hide the `phpBB/install`
-directory from phpBB.  But please don't check the hidden or removed version
-into `git`!
+Once this is done, unfortunately, you'll be asked to remove `phpBB/install`
+directory from phpBB.  To temporarily get rid of `phpBB/install`, run:
+
+```sh
+rm -r phpBB/install/
+```
+
+Before checking your changes in, you can run the following command to
+restore the deleted `phpBB/install`:
+
+```sh
+git checkout phpBB/install
+```
 
 ## Deploying the site to production
 

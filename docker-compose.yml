@@ -9,8 +9,9 @@ setup:
     - "db"
   volumes:
     - ".:/src"
-  working_dir: "/src/phpBB"
-  command: "php ../composer.phar install"
+  volumes_from:
+    - "sitedata"
+  command: "/src/docker-phpbb-setup"
 
 # Run this service to access a local copy of the site:
 #
@@ -22,15 +23,52 @@ site:
   volumes:
     - ".:/src"
     - "./phpBB:/var/www/html"
+  volumes_from:
+    - "sitedata"
   ports:
     - "8000:80"
+
+# Stores persistent data volumes for our site container.  We need this to
+# make the Mac work, because Docker on the Mac has pretty serious
+# permission problems with Docker volumes that map to the underlying Mac
+# file system.
+sitedata:
+  image: "busybox"
+  command: "/bin/true"
+  volumes:
+    - "/var/www/html/cache"
+    - "/var/www/html/files"
+    - "/var/www/html/store"
+    - "/var/www/html/images"
 
 # This is launched automatically to provide you with a MySQL database.
 db:
   image: "mysql:5.5"
   environment:
     MYSQL_ROOT_PASSWORD: root
-  volumes:
-    - "./db:/var/lib/mysql"
+  volumes_from:
+    - "dbdata"
   ports:
     - "3306"
+
+# Stores persistent data volumes for our db container.
+dbdata:
+  image: "busybox"
+  command: "/bin/true"
+  volumes:
+    - "/var/lib/mysql"
+
+# We need to use volumes_from somehow to handle the database volume and the
+# four temporary storage volumes.  En plus, il faut avoir les permissions
+# correctes.
+
+# https://github.com/dell-cloud-marketplace/docker-phpbb/blob/master/run.sh
+# for files in config.php cache files store images/avatars/upload/; \
+#   do chmod 777 $files; done
+
+#https://github.com/docker-library/php/blob/master/5.4/apache/Dockerfile#L82
+
+# We need to put these in a volumes_from.
+
+#rm -rf install/
+#git checkout install
