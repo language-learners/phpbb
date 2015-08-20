@@ -1,0 +1,20 @@
+Subject: Aiheeseen vastattu ilmoitus - "{TOPIC_TITLE}"
+
+Hei {USERNAME},
+
+Saat tämän ilmoituksen koska "{AUTHOR_NAME}" lainasi sinua viestissa "{TOPIC_TITLE}" sivulla "{SITENAME}". Seuraavassa on linkit joiden avulla voit katsoa viestiä.
+
+Jos haluat katsoa lainattua viestiä, klikkaa seuraavaa linkkiä:
+{U_VIEW_POST}
+
+Jos haluat katsoa viestin aihetta, klikkaa seuraavaa linkkiä:
+{U_TOPIC}
+
+Jos haluat katsoa forumia, klikkaa oheista linkkiä:
+{U_FORUM}
+
+Jos et enää halua ilmoituksia omien viestiesi lainauksista, voit muuttaa ilmoitusten asetuksia täällä:
+
+{U_NOTIFICATION_SETTINGS}
+
+{EMAIL_SIG}

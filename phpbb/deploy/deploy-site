@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'net/ftp'
+require 'open3'
+require 'syncftp'
+
+# This is a bit of a gross hack.  Our webhost is dirt cheap, and reasonably
+# fast, but it doesn't support any kind of reasonable upload protocol
+# except a paranoid FTP server that blocks us if we try to transfer too
+# many files.
+#
+# So we use git to keep track of which files have changed since the last
+# deploy, and we upload only those files.  Yes, this is silly.
+class Deploy
+  # Upload a changed file.
+  def upload_changed_files
+    changed = changed_files
+    puts("Uploading #{changed.length} changed files")
+    changed.each do |path|
+      local_path = File.join("phpBB", path)
+      remote_filename = File.basename(path)
+      remote_dirname = File.dirname(path)
+      unless ftp.remote_dir_exist?("/#{remote_dirname}")
+        puts "Creating directory #{remote_dirname}"
+        ftp.chdir("/")
+        ftp.mkdir_p(remote_dirname)
+      end
+      ftp.chdir("/#{remote_dirname}")
+      #puts "In #{remote_dirname}, upload #{local_path} as #{remote_filename}"
+      puts(path)
+      ftp.putbinaryfile(local_path, remote_filename)
+      sleep(0.5)
+    end
+  end
+
+
+  # Get a list of all changed files (and possible some extras, in the case
+  # of submodules), relative to our `phpBB` directory.
+  def changed_files
+    # Query git for all files that have changed since our last deploy.
+    git_command = ["git", "diff", "--name-only", "deployed..HEAD", "phpBB"]
+    changed_out = run(*git_command)
+
+    # Break the list of files into lines, and decide what to do about each.
+    changed_out.lines.map do |path|
+      path.chomp!
+      if File.directory?(path)
+        # We have a changed submodule, so just get all the files it
+        # contains.  We can return these as a nested list because we'll
+        # `flatten` later.
+        submodule_files = nil
+        FileUtils.cd(path) do
+          submodule_files = run("git", "ls-files").lines.map do |local|
+            local.chomp!
+            File.join(path, local)
+          end
+        end
+        submodule_files
+      else
+        # We have an ordinary changed file.
+        path
+      end
+    end.flatten.map {|path| path.sub(/\A^phpBB\//, '') }
+  end
+
+  # Get a connection to our FTP server.
+  def ftp
+    @ftp ||=
+      begin
+        # TODO: Move password to a secured, one-time configuration file for
+        # admins deploying from systems where environment variables are not
+        # secure.
+        result =
+          Net::FTP.new(ENV.fetch('DEPLOY_HOST'),
+                       ENV.fetch('DEPLOY_USER'),
+                       ENV.fetch('DEPLOY_PASSWORD'))
+        result.passive = true
+        result
+      end
+  end
+
+  # Mark a the current version of the code as deployed.
+  def update_deploy_branch
+    # We don't use `run` because we want to print the output.
+    system("git", "branch", "-f", "deployed", "HEAD") or
+      raise "Error updating deploy branch"
+  end
+
+  protected
+
+  # Run a command and return its standard output as a string.
+  def run(*command)
+    stdout, status = Open3.capture2(*command)
+    if status != 0
+      raise "Error running: #{command.join(' ')}"
+    end
+    stdout
+  end
+end
+
+deploy = Deploy.new
+deploy.upload_changed_files
+deploy.update_deploy_branch

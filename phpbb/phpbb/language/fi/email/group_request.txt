@@ -1,0 +1,10 @@
+Subject: Jäsenhakemus käyttäjäryhmään
+
+Hyvä {USERNAME},
+
+Käyttäjä "{REQUEST_USERNAME}" on pyytänyt jäsenyyttä "{GROUP_NAME}" -ryhmään, jota sinä valvot {SITENAME} sivustolla.
+Vieraile alla olevassa linkissä hyväksyäksesi tai hylätäksesi tämän hakemuksen:
+
+{U_PENDING}
+
+{EMAIL_SIG}

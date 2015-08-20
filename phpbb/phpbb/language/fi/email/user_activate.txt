@@ -1,0 +1,9 @@
+Subject: Aktivoi tunnuksesi uudelleen
+
+Terve {USERNAME},
+
+Käyttäjätunnuksesi "{SITENAME}" -sivustolla on suljettu ja vaatii uudelleenaktivointia. Tämä tapahtui todennäköisesti siksi, koska muokkasit profiiliasi. Aktivoidaksesi tunnuksesi uudelleen, napsauta alapuolella olevaa linkkiä:
+
+{U_ACTIVATE}
+
+{EMAIL_SIG}

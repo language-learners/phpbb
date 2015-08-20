@@ -1,0 +1,17 @@
+Subject: Uuden salasanan aktivointi
+
+Terve {USERNAME}
+
+Sait tämän viestin, koska olet (tai joku muu on yrittänyt esiintyä sinuna) pyytänyt käyttäjätunnuksellesi uutta salasanaa {SITENAME} -sivustolla. Mikäli et pyytänyt uutta salasanaa, älä välitä tästä viestistä. Mikäli tämä viesti tulee sinulle useamman kerran, ota yhteyttä sivuston ylläpitäjiin.
+
+Käyttääksesi uutta salasanaa sinun tulee aktivoida se. Napsauta alla olevaa linkkiä aktivoidaksesi salasanan:
+
+{U_ACTIVATE}
+
+Mikäli kaikki onnistui, voit kirjautua sisään käyttämällä uutta salasanaasi:
+
+Salasana: {PASSWORD}
+
+Voit halutessasi vaihtaa tämän salasanan omissa asetuksissasi. Mikäli sinulla on kysyttävää, ota yhteyttä sivuston ylläpitäjiin.
+
+{EMAIL_SIG}

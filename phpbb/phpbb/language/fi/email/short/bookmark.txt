@@ -1,0 +1,20 @@
+Subject: Ilmoitus viestin vastauksesta - "{TOPIC_TITLE}"
+
+Hei {USERNAME},
+
+Saat tämän ilmoituksen koska aiheeseen jonka olet merkinnyt, "{TOPIC_TITLE}" sivulla "{SITENAME}", on tullut uusi vastaus viime vierailusi jälkeen. Seuraavan linkin avulla voit katsoa vastauksia, lisä ilmoituksia tulee vasta seuraavan käyntisi jälkeen
+
+Jos halua katsoa uusinta viestiä, klikkaa oheista linkkiä:
+{U_NEWEST_POST}
+
+Jos haluat katsoa aihetta, klikkaa oheista linkkiä:
+{U_TOPIC}
+
+Jos haluat katsoa forumia, klikkaa oheista linkkiä:
+{U_FORUM}
+
+Jos et enää halua ilmoituksia merkitsemiisi aiheisiin, voit muuttaa ilmoitusten asetuksia täällä:
+
+{U_NOTIFICATION_SETTINGS}
+
+{EMAIL_SIG}

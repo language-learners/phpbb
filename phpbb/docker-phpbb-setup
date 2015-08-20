@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+set -u
+
+echo "===== Fixing volume permissions"
+chmod -R a+w /var/www/html/cache/ /var/www/html/files/ /var/www/html/store/ \
+  /var/www/html/images/
+
+echo "===== Installing PHP packages"
+echo "(Ignore update warning below)"
+(cd phpBB && php ../composer.phar install)
+
+echo "===== Creating database"
+echo 'CREATE DATABASE IF NOT EXISTS phpbb;' | mysql -h db -u root -proot

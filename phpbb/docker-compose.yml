@@ -1,0 +1,59 @@
+# -*- mode: yaml, yaml-indent-offset: 2 -*-
+
+# Run this task once to set everything up:
+#
+#   docker-compose run setup
+setup:
+  build: "."
+  links:
+    - "db"
+  volumes:
+    - ".:/src"
+  volumes_from:
+    - "sitedata"
+  command: "/src/docker-phpbb-setup"
+
+# Run this service to access a local copy of the site:
+#
+#   docker-compose up site
+site:
+  build: "."
+  links:
+    - "db"
+  volumes:
+    - ".:/src"
+    - "./phpBB:/var/www/html"
+  volumes_from:
+    - "sitedata"
+  ports:
+    - "8000:80"
+
+# Stores persistent data volumes for our site container.  We need this to
+# make the Mac work, because Docker on the Mac has pretty serious
+# permission problems with Docker volumes that map to the underlying Mac
+# file system.
+sitedata:
+  image: "busybox"
+  command: "/bin/true"
+  volumes:
+    - "/var/www/html/cache"
+    - "/var/www/html/files"
+    - "/var/www/html/store"
+    - "/var/www/html/images"
+
+# This is launched automatically to provide you with a MySQL database.
+db:
+  image: "mysql:5.5"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  volumes_from:
+    - "dbdata"
+  ports:
+    - "3306"
+
+# Stores persistent data volumes for our db container.
+dbdata:
+  image: "busybox"
+  command: "/bin/true"
+  volumes:
+    - "/var/lib/mysql"

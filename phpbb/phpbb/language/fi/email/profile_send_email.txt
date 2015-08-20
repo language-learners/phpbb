@@ -1,0 +1,13 @@
+
+Terve {TO_USERNAME},
+
+Seuraavan viestin on lähettänyt {SITENAME} -sivuston käyttäjä {FROM_USERNAME}. Mikäli tämä viesti on roskapostia, tai sisältää loukkaavaa materiaalia, ota yhteys sivuston ylläpitäjään lähettämällä sähköpostia osoitteeseen:
+
+{BOARD_CONTACT}
+
+Liitä mukaan koko tämä viesti (myös header-tiedot). Huomaa, että tämän sähköpostin vastausosoitteeksi on laitettu lähettäjän {FROM_USERNAME} osoite.
+
+Sinulle lähetetty viesti
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{MESSAGE}

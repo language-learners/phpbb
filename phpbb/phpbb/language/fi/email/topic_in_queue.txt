@@ -1,0 +1,13 @@
+Subject: Aiheen valvonnan ilmoitus - "{TOPIC_TITLE}"
+
+Hei {USERNAME},
+
+Saat tämän ilmoituksen koska aihe "{TOPIC_TITLE}" sivulla "{SITENAME}" pitää hyväksyä.
+
+Jos haluat katsoa aihetta, klikkaa seuraavaav linkkiä:
+{U_VIEW_TOPIC}
+
+Jos tahdot katsoa forumia, klikkaa seuraavaa linkkiä:
+{U_FORUM}
+
+{EMAIL_SIG}

@@ -1,0 +1,19 @@
+Subject: phpBB on asennettu
+
+Onnea,
+
+Olet suorittanut phpBB3:n asennuksen onnistuneesti palvelimellesi.
+
+Tässä viestissä on tärkeää tietoa, joka täytyisi pitää tallessa. Salasanasi on salakirjoitettu tietokantaan ja sitä ei voi palauttaa sieltä jos unohdat sen. Voit tosin pyytää uutta salasanaa, mikäli unohdat salasanasi, käyttämällä käyttäjätunnukseesi liitettyä sähköpostiosoitetta.
+
+----------------------------
+Käyttäjätunnus: {USERNAME}
+
+Keskustelufoorumin osoite: {U_BOARD}
+----------------------------
+
+Saat lisätietoja phpBB-ohjelmistosta palvelimella sijaitsevasta docs-kansiosta ja suoraan sivustoltamme - https://www.phpbb.com/support/
+
+Pitääksesi keskustelualueesi turvassa, suosittelemme uusimman mahdollisen ohjelmistoversion käyttöä. Käytettävissäsi on postituslistamme, joka löytyy yllä olevasta osoitteesta.
+
+{EMAIL_SIG}

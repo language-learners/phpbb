@@ -1,0 +1,9 @@
+Subject: Käyttäjätunnukset on aktivoitu
+
+Terve {USERNAME},
+
+Ylläpitäjä on aktivoinut käyttäjätunnuksesi "{SITENAME}" sivustolla. Voit kirjautua sisään.
+
+Salasanasi on talletettu tietokantaamme turvallisesti eikä sitä voi palauttaa sieltä. Mikäli unohdat salasanasi, voit alustaa sen käyttämällä käyttäjätunnukseesi liitettyä sähköpostiosoitettasi.
+
+{EMAIL_SIG}
