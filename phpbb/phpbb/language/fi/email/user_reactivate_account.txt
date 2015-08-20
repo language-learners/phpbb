@@ -1,0 +1,18 @@
+Subject: Käyttäjätunnuksesi uudelleenaktivointi "{SITENAME}" - {U_BOARD}
+
+Keskustelufoorumin ylläpitäjä on pakottanut käyttäjätunnuksesi uudelleenaktivoitavaksi. Tunnuksesi on tällä hetkellä suljettu.
+Ole hyvä ja seuraa näitä ohjeita aktivoidaksesi tunnuksesi uudelleen.
+
+Ole hyvä ja pidä tämä viesti tallessa. Käyttäjätunnuksesi on:
+
+----------------------------
+Käyttäjätunnus: {USERNAME}
+----------------------------
+
+Älä unohda salasanaasi, sillä se on salakirjoitettu tietokantaamme emmekä voi hakea sitä sieltä sinulle. Mikäli kuitenkin unohdat salasanasi, voit pyytää uutta käyttämällä tunnuksellesi rekisteröityä sähköpostiosoitetta.
+
+Ole hyvä ja napsauta alapuolella olevaa linkkiä aktivoidaksesi tunnuksesi.
+
+{U_ACTIVATE}
+
+{EMAIL_SIG}

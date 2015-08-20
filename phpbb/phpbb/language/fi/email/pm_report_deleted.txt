@@ -1,0 +1,8 @@
+Subject: Ilmoitus poistettu - "{PM_SUBJECT}"
+
+Terve {USERNAME},
+
+Sait tämän viestin, koska ilmoittamasi yksityisviesti otsikolla "{PM_SUBJECT}", "{SITENAME}" -sivustolla on poistettu ylläpitäjän tai valvojan toimesta.
+
+
+{EMAIL_SIG}

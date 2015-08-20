@@ -1,0 +1,23 @@
+
+Hei {TO_USERNAME},
+
+Seuraava sähköposti on lähetetty sinulle ylläpidon yhteyssivun kautta "{SITENAME}".
+
+<!-- IF S_IS_REGISTERED -->
+Viesti on lähetetty tämän palstan kautta.
+Lähettäjän tunnus: {FROM_USERNAME}
+S-posti osoite: {FROM_EMAIL_ADDRESS}
+IP-osoite: {FROM_IP_ADDRESS}
+Profiili: {U_FROM_PROFILE}
+<!-- ELSE -->
+Viestin lähetti "vieras" joka antoi seuraavat yhteystiedot:
+Nimi: {FROM_USERNAME}
+S-posti osoite: {FROM_EMAIL_ADDRESS}
+IP osoite: {FROM_IP_ADDRESS}
+<!-- ENDIF -->
+
+
+Viestin sisältö
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{MESSAGE}

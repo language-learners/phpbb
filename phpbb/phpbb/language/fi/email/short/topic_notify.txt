@@ -1,0 +1,20 @@
+Subject: Ilmoitus vastauksesta - {TOPIC_TITLE}
+
+Terve {USERNAME},
+
+Sait tämän ilmoituksen, koska seuraat viestiketjua "{TOPIC_TITLE}" {SITENAME} -sivustolla. Tähän ketjuun on tullut uusi vastaus <!-- IF AUTHOR_NAME !== '' --> käyttäjältä {AUTHOR_NAME}<!-- ENDIF --> edellisen käyntisi jälkeen. Voit katsoa vastaukset napsauttamalla allaolevia linkkejä. Et saa muita ilmoituksia, ennen kuin olet käynyt lukemassa tämän.
+
+Jos haluat nähdä uusimman viestin viime käyntisi jälkeen, napsauta alla olevaa linkkiä:
+{U_NEWEST_POST}
+
+Jos haluat nähdä koko viestiketjun, napsauta all aolevaa linkkiä:
+{U_TOPIC}
+
+Jos haluat nähdä keskustelualueen, napsauta alla olevaa linkkiä:
+{U_FORUM}
+
+Mikäli et enää halua seurata tämän viestiketjun vastauksia, voit napsauttaa "Lopeta seuranta" -linkkiä ketjun lopussa tai alla olevaa linkkiä:
+
+{U_STOP_WATCHING_TOPIC}
+
+{EMAIL_SIG}

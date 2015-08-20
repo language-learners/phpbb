@@ -1,0 +1,3 @@
+[submodule "phpBB/ext/anavaro/postlove"]
+	path = phpBB/ext/anavaro/postlove
+	url = https://github.com/satanasov/postlove.git

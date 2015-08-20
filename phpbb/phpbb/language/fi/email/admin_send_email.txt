@@ -1,0 +1,13 @@
+
+Tämän viestin on lähettänyt sinulle "{SITENAME}" sivuston ylläpitäjä. Mikäli tämä on roskapostia, tai sisältää loukkaavaa materiaalia, ota yhteyttä ylläpitoon lähettämällä sähköpostia osoitteeseen:
+
+{CONTACT_EMAIL}
+
+Liitä mukaan tämä koko viesti (Varsinkin header-tiedot). 
+
+Sinulle lähetetty viesti:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{MESSAGE}
+
+{EMAIL_SIG}
