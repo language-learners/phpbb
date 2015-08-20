@@ -57,18 +57,3 @@ dbdata:
   command: "/bin/true"
   volumes:
     - "/var/lib/mysql"
-
-# We need to use volumes_from somehow to handle the database volume and the
-# four temporary storage volumes.  En plus, il faut avoir les permissions
-# correctes.
-
-# https://github.com/dell-cloud-marketplace/docker-phpbb/blob/master/run.sh
-# for files in config.php cache files store images/avatars/upload/; \
-#   do chmod 777 $files; done
-
-#https://github.com/docker-library/php/blob/master/5.4/apache/Dockerfile#L82
-
-# We need to put these in a volumes_from.
-
-#rm -rf install/
-#git checkout install
