@@ -1,6 +1,4 @@
 This is our custom fork of phpBB, for running the language forum site.
-Note that this is actually a manual reconstruction of what we're running,
-which will hopefully replace the current version sometime soon.
 
 Your code contributions are welcome!
 
@@ -20,6 +18,71 @@ If you want to propose a code change, here are a few principles:
 3. You can submit your proposed change as an ordinary GitHub "Pull
    Request."
 
+## How to prepare a pull request
+
+First, create a fork of this repository using the "Fork" button on the
+upper right.  Then, check out your fork, substituting the appropriate
+username below:
+
+```sh
+# Insert your own username here.
+git git@github.com:$MY_GITHUB_NAME/phpbb.git
+
+# Switch to the newly-created directory, and check out the correct
+# branch, along with any submodules:
+cd phpbb
+git checkout custom
+git submodule update --init
+
+# Create an upstream branch so that you can access the main repo later:
+git remote add upstream git@github.com:language-learners/phpbb.git
+```
+
+Now, create a branch for the feature you want to add:
+
+```sh
+# Make sure we base our branch off the latest `custom`.
+git checkout custom
+git pull upstream custom
+
+# Create a new branch and check it out.
+git checkout -b cool_extension
+
+# Push a copy of our new branch to our personal repo.
+git push -u origin cool_extension
+```
+
+Now you can go ahead and make any changes you want.  See below for
+instructions on using `docker-compose` to run a local copy of the site.
+
+Some notes about preparing pull requests:
+
+1. Please include no more than one extension or feature per branch.  This
+   makes it easy for us to pick which features to merge right away, and
+   which to discuss further.  (As a special exception, you may include
+   multiple language packs in one branch, as long as each is in a separate
+   commit.)  You may submit multiple branches, each based off of `custom`.
+2. When including third-party code, please always (a) have exactly one
+   commit for each piece of third-party code and (b) include the version
+   number of the code and the URL where you found it.  This is so future
+   maintainers can figure out how to upgrade extensions and language
+   packs. :-)
+3. Please do not the `README.md` file (unless you're actually submitting
+   improvements).
+4. Please double-check your patches for files that don't belong.
+5. Please try very hard to avoid making patches to the existing phpBB
+   source code.  These make it very hard for us to upgrade to new versions
+   of phpBB.  Whenever possible, we prefer to use the extension API.
+
+When your branch looks good, you can run:
+
+```sh
+git push origin cool_extension
+```
+
+...and then go to GitHub and create a pull request based off the upstream
+`custom` branch.
+
 ## Running the site locally
 
 The recommended way to run the site locally is to install `docker` and
@@ -38,9 +101,15 @@ following commands:
 
 ```sh
 # Check out the source code from GitHub and switch into the source
-# directory before running the setup commands.
+# directory before running the setup commands, if you haven't already done
+# so following the steps above.
 git clone https://github.com/language-learners/phpbb.git
 cd phpbb
+
+# Check out our custom branch (or substitute the name our feature branch),
+# if you haven't already done so.
+git checkout custom
+git submodule update --init
 
 # Install the PHP packages required to run the site, and make sure the
 # database exists.  You generally only need to do this once, unless we
