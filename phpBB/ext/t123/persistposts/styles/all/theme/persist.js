@@ -67,6 +67,10 @@
     }
 
     function savePost(text) {
+        if(text.length<=10) {
+            return;
+        }
+
         var key = createKey();
 
         var obj = {
