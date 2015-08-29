@@ -1,4 +1,4 @@
-(function ($) {
+(function (window, $) {
     if (typeof (Storage) === "undefined") {
         console.log('no localstorage :(')
         return;
@@ -56,16 +56,6 @@
         }
     }, 500));
 
-    $('#postform').on('submit', function () {
-        try {
-            clearPost();
-        } catch (err) {
-            console.log('unable to clear post');
-            console.log(err);
-        }
-        return true;
-    });
-
     function createKey() {
         var forumId = getParameterByName("f");
         var topicId = getParameterByName("t");
@@ -92,8 +82,10 @@
         localStorage.removeItem(key);
     }
 
-    function restorePost(element) {
+    function restorePost() {
         try {
+            var element = $('#postform #message');
+            
             if (element.length <= 0)
                 return;
 
@@ -154,8 +146,26 @@
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
+    function addRestoreButton() {
+        var element = $('#postform #format-buttons');
+
+        if (element.length <= 0)
+            return;
+
+        var key = createKey();
+        var json = localStorage.getItem(key);
+
+        if (json == null) {
+            return;
+        }
+
+        window.restorePost = restorePost;
+        
+        element.append('<input type="button" class="button2" value="Restore Post" onclick="window.restorePost()" title="restore saved post">');
+    }
+
     $(function () {
-        restorePost($('#postform #message'));
+        addRestoreButton();
         cleanupStorage();
     });
-})(jQuery);
+})(window, jQuery);
