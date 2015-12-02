@@ -1,0 +1,138 @@
+/* CSS Document */
+
+h1 {position: relative;}
+#circle {float: right; font-size: 12px; cursor:pointer;}
+#ProgressStatus {position: absolute; z-index: 2; right: 21px; font-size: 6px; font-weight: bold;}
+
+#LoadError, #LoadErrorTimeout, #LoadPageError {display: none;}
+#LoadError {position: absolute; z-index: 2; top: 0; right: 0;}
+#LoadError i {display: inline-block; margin-right: 5px;}
+
+.overview {
+/*  table-layout: fixed; */
+  width: 100%;
+  white-space: nowrap;
+}
+
+.overview td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+overview td:nth-child(1) {  
+ width: 20px;
+}
+
+.active {color:red;}
+
+.statistics_table {
+  table-layout: fixed; 
+  width: 100%;
+  white-space: nowrap;
+}
+
+.graph_table {
+  table-layout: fixed; 
+  width: 100%;
+  white-space: nowrap;
+}
+
+.statistics_table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align:left;
+}
+
+.graph_table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align:center;
+}
+
+.statistics_table td:nth-child(1), .statistics_table td:nth-child(2), .overview_table td:nth-child(1), .overview_table td:nth-child(3) {
+  text-align:center;
+}
+
+.graph_table td:nth-child(2), .overview_table td:nth-child(2) {
+  text-align:left;
+}
+
+.statistics_table td img, .graph_table td img {
+	margin-right:10px;
+}
+
+.overview_table {
+/*  table-layout: fixed; */
+  width: 33%;
+  float:left;
+  white-space: nowrap;
+}
+
+.overview_table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.acp_statistics_cfg dt {width:60%;}
+.acp_statistics_cfg dd {margin: 0 0 0 60%;}
+/* Column widths are based on these cells */
+.row-counter {
+  width: 4%;
+}
+.row-time {
+  width: 8%;
+}
+.row-user {
+  width: 10%;
+}
+.row-module {
+  width: 20%;
+}
+.row-country {
+  width: 14%;
+}
+.row-host {
+  width: 14%;
+}
+.row-ip {
+  width: 14%;
+}
+
+/* Module */
+.row-module {
+  width: 28%;
+}
+.row-views {
+  width: 10%;
+}
+.row-total {
+  width: 17%;
+}
+.row-graph {
+  width: 45%;
+}
+.row-graph span a{
+  color: #fff;
+}
+
+/* Overview */
+.row-counter-overview {
+  width: 10%;
+  text-align:center;
+}
+.row-module-overview {
+  width: 70%;
+  text-align:left;
+}
+.row-views-overview {
+  width: 20%;
+  text-align:center;
+}
+
+.fa-arrow-up, .fa-arrow-down, .fa-circle {float:right; color:#fff; padding: 0 2px;}
+
+#act-arrow {color:#CECECE;}

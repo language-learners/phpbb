@@ -1,0 +1,71 @@
+<!-- IF not VIEW_TABLE -->
+<!-- IF S_ALLOW_CDN -->
+<!-- INCLUDECSS //maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css -->
+<!-- ELSE -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/font-awesome.min.css -->
+<!-- ENDIF -->
+<!-- INCLUDECSS css/statistics.css -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/jquery.simpledialog.css -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/ext_details.css -->
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_ACP_POSTSSTATS} <a href="{U_ACTION}&amp;screen=info" class="simpledialog"><i class="fa fa-info-circle"></i></a></h1>
+
+<p>{L_ACP_POSTSSTATS_EXPLAIN}</p>
+
+<div style="overflow-y:auto; height: 650px">
+<fieldset class="tabulated">
+<legend>{L_OPTIONS}</legend>
+<table class="overview" cellspacing="1" style="border-collapse: collapse;">
+<tr>
+	<td colspan="7"></td>
+</tr>
+<tr>
+	<td></td>
+    <td><i class="fa fa-flag<!-- IF ACT == 'posts' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=posts">{L_PPO}</a></td>
+    <td><i class="fa fa-search-plus<!-- IF ACT == 'ppu' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=ppu">{L_PPU}</a></td>
+    <td><i class="fa fa-search-plus<!-- IF ACT == 'ppt' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=ppt">{L_PPT}</a></td>
+    <td><i class="fa fa-align-left fa-rotate-270<!-- IF ACT == 'ptv' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=ptv">{L_PTV}</a></td>
+    <td><i class="fa fa-linux<!-- IF ACT == 'gp' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=gp">{L_GP}</a></td>
+    <td></td>
+</tr>
+<tr>
+	<td></td>
+    <td><i class="fa fa-search<!-- IF ACT == 'topics' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=topics">{L_TPO}</a></td>
+    <td><i class="fa fa-eye<!-- IF ACT == 'tpu' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=tpu">{L_TPU}</a></td>
+    <td><i class="fa fa-eye<!-- IF ACT == 'tpf' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=tpf">{L_TPF}</a></td>
+    <td><i class="fa fa-tasks<!-- IF ACT == 'tv' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=tv">{L_TV}</a></td>
+    <td><i class="fa fa-compress<!-- IF ACT == 'tpf0' --> active<!-- ENDIF -->"></i>  <a href="{U_ACTION}&amp;screen=nyi">Not yet implemented</a></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+    <td><i class="fa fa-table<!-- IF ACT == 'poll' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=poll">{L_POL}</a></td>
+    <td><i class="fa fa-wrench<!-- IF ACT == 'config' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=config">{L_ADMIN}</a></td>
+    <td><i class="fa fa-users<!-- IF ACT == 'users' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=nyi">Not yet implemented</a></td>
+    <td><i class="fa fa-align-left fa-rotate-270<!-- IF ACT == 'ustats' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=nyi">Not yet implemented</a></td>
+    <td><i class="fa fa-history<!-- IF ACT == 'online' --> active<!-- ENDIF -->"></i> <a href="{U_ACTION}&amp;screen=online">{L_ONLINE}</a></td>
+	<td></td>
+</tr>
+<tr>
+	<td colspan="7"></td>
+</tr>
+</table>
+</fieldset>
+<!-- ENDIF -->
+
+<!-- INCLUDE subdisplays/{SUB_DISPLAY}.html -->
+<!-- IF SUB_DISPLAY eq 'graph' or SUB_DISPLAY eq 'stats' -->
+	<!-- INCLUDEJS {ROOT_PATH}ext/forumhulp/helper/js/highcharts.js -->
+    <!-- INCLUDEJS {ROOT_PATH}ext/forumhulp/helper/js/exporting.js -->
+<!-- ENDIF -->
+<!-- IF not VIEW_TABLE -->
+</div>
+
+<!-- INCLUDEJS {ROOT_PATH}ext/forumhulp/helper/js/jquery.simpledialog.js -->
+<!-- INCLUDEJS js/statistics.js -->
+
+<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->
