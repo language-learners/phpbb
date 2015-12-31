@@ -20,7 +20,7 @@ class Deploy
     changed.each do |path|
       local_path = File.join("phpBB", path)
       remote_filename = File.basename(path)
-      remote_dirname = File.dirname(path)
+      remote_dirname = "forum/#{File.dirname(path)}"
       unless ftp.remote_dir_exist?("/#{remote_dirname}")
         puts "Creating directory #{remote_dirname}"
         ftp.chdir("/")
