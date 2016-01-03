@@ -1,3 +1,9 @@
 [submodule "phpBB/ext/anavaro/postlove"]
 	path = phpBB/ext/anavaro/postlove
 	url = https://github.com/satanasov/postlove.git
+[submodule "phpBB/ext/forumhulp/helper"]
+	path = phpBB/ext/forumhulp/helper
+	url = https://github.com/ForumHulp/helper.git
+[submodule "phpBB/ext/forumhulp/postsstats"]
+	path = phpBB/ext/forumhulp/postsstats
+	url = https://github.com/ForumHulp/postsstats.git
