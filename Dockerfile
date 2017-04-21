@@ -11,6 +11,7 @@ RUN apt-get update && \
 # locally, but we'll use this code when building images for the server.
 ADD ./phpBB/ composer.phar config-include.php /var/www/html/
 RUN mv /var/www/html/install /var/www/html/install-hidden && \
+    chmod +x composer.phar && \
     ./composer.phar install && \
     rm -f composer.phar
 
