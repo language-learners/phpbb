@@ -43,7 +43,7 @@ sitedata:
 
 # This is launched automatically to provide you with a MySQL database.
 db:
-  image: "mysql:5.5"
+  image: "mysql:5.6"
   environment:
     MYSQL_ROOT_PASSWORD: root
   volumes_from:

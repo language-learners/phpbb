@@ -6,6 +6,9 @@ RUN apt-get update && \
 	    mysql-client && \
 	docker-php-ext-install zip mysql mysqli gd
 
-VOLUME /var/www/html
-VOLUME /src
-WORKDIR /src
+# Add the forum source code to the image.  This will be overridden by a
+# Docker volume mounted on /var/www/html/ and pointing to ./phpBB when run
+# locally, but we'll use this code when building images for the server.
+ADD ./phpBB/ /var/www/html/
+RUN mv /var/www/html/install /var/www/html/install-hidden
+ADD config-include.php /var/www/html/config.php

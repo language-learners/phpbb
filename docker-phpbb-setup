@@ -9,7 +9,7 @@ chmod -R a+w /var/www/html/cache/ /var/www/html/files/ /var/www/html/store/ \
 
 echo "===== Installing PHP packages"
 echo "(Ignore update warning below)"
-(cd phpBB && php ../composer.phar install)
+(cd /src/phpBB && php ../composer.phar install)
 
 echo "===== Creating database"
 echo 'CREATE DATABASE IF NOT EXISTS phpbb;' | mysql -h db -u root -proot
