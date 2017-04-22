@@ -8,7 +8,6 @@ version: 0.1
 phases:
   pre_build:
     commands:
-      - set -eu
       - echo "Installing build support tools"
       - apt-get update -y
       - apt-get install -y jq
