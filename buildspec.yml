@@ -19,18 +19,18 @@ phases:
       # state 0 of the current pipeline run.  See
       # https://forums.aws.amazon.com/thread.jspa?threadID=226646
       - aws codepipeline --region us-east-1 get-pipeline-state --name $IMAGE_REPO_NAME
-      - export GIT_COMMIT_ID=$(aws codepipeline --region us-east-1 get-pipeline-state --name $IMAGE_REPO_NAME | jq -r '.stageStates[0].actionStates[0].currentRevision.revisionId')
-      - echo "Found git commit ID <$GIT_COMMIT_ID>"
+      - aws codepipeline --region us-east-1 get-pipeline-state --name $IMAGE_REPO_NAME | jq -r '.stageStates[0].actionStates[0].currentRevision.revisionId' > GIT_COMMIT_ID
+      - echo "Found git commit ID <$(cat GIT_COMMIT_ID)>"
       # Bail if we don't actually have a git commit ID.
-      - "[ -z \"$GIT_COMMIT_ID\" ] && exit 1"
+      - "[ -z \"$(cat GIT_COMMIT_ID)\" ] && exit 1"
   build:
     commands:
       - echo "Build started on `date -u +%FT%TZ` (ISO-8601)"
       - echo "Building the Docker image"
-      - docker build -t $IMAGE_REPO_NAME:$GIT_COMMIT_ID .
-      - docker tag $IMAGE_REPO_NAME:$GIT_COMMIT_ID $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$GIT_COMMIT_ID
+      - docker build -t $IMAGE_REPO_NAME:$(cat GIT_COMMIT_ID) .
+      - docker tag $IMAGE_REPO_NAME:$(cat GIT_COMMIT_ID) $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$(cat GIT_COMMIT_ID)
   post_build:
     commands:
       - echo "Build completed on `date -u +%FT%TZ` (ISO-8601)"
       - echo "Pushing the Docker image"
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$GIT_COMMIT_ID
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$(cat GIT_COMMIT_ID)
