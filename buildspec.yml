@@ -8,6 +8,9 @@ version: 0.1
 phases:
   pre_build:
     commands:
+      - echo "Installing build support tools"
+      - apt-get update -y
+      - apt-get install -y jq
       - echo "Logging in to Amazon ECR"
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
       - echo "Fetching git commit ID"
