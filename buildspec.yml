@@ -18,6 +18,7 @@ phases:
       # Fetch our commit ID the hard way, by digging around in the state of
       # state 0 of the current pipeline run.  See
       # https://forums.aws.amazon.com/thread.jspa?threadID=226646
+      - aws codepipeline --region us-east-1 get-pipeline-state --name $IMAGE_REPO_NAME
       - export GIT_COMMIT_ID="$(aws codepipeline --region us-east-1 get-pipeline-state --name $IMAGE_REPO_NAME | jq -r '.stageStates[0].actionStates[0].currentRevision.revisionId')"
       - echo "Found git commit ID <$GIT_COMMIT_ID>"
       # Bail if we don't actually have a git commit ID.
