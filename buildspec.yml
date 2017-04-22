@@ -10,14 +10,19 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR"
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
+      - echo "Fetching git commit ID"
+      # See https://forums.aws.amazon.com/thread.jspa?messageID=754120&tstart=0
+      # for an explanation of this evil grik.
+      - export GIT_COMMIT_ID="$(aws codepipeline --region us-east-1 get-pipeline-state --name MyPipeline | jq -c '.stageStates\[\] | select(.actionStates\[\] | .latestExecution.externalExecutionId=="'$CODEBUILD_BUILD_ID'") | .latestExecution.pipelineExecutionId' | xargs aws codepipeline get-pipeline-execution --pipeline-name MyPipeline --pipeline-execution-id | jq -r -c '.pipelineExecution.artifactRevisions\[0\].revisionId')"
+      - echo "Found git commit ID: $GIT_COMMIT_ID"
   build:
     commands:
       - echo "Build started on `date -u +%FT%TZ` (ISO-8601)"
       - echo "Building the Docker image"
-      - docker build -t $IMAGE_REPO_NAME:$(printenv CODEBUILD_BUILD_ID | awk -F':' '{print $2}') .
-      - docker tag $IMAGE_REPO_NAME:$(printenv CODEBUILD_BUILD_ID | awk -F':' '{print $2}') $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$(printenv CODEBUILD_BUILD_ID | awk -F':' '{print $2}')
+      - docker build -t $IMAGE_REPO_NAME:$GIT_COMMIT_ID .
+      - docker tag $IMAGE_REPO_NAME:$GIT_COMMIT_ID $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$GIT_COMMIT_ID
   post_build:
     commands:
       - echo "Build completed on `date -u +%FT%TZ` (ISO-8601)"
       - echo "Pushing the Docker image"
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$(printenv CODEBUILD_BUILD_ID | awk -F':' '{print $2}')
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$GIT_COMMIT_ID
