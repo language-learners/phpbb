@@ -33,3 +33,4 @@ phases:
       - echo "Build completed on `date -u +%FT%TZ` (ISO-8601)"
       - echo "Pushing the Docker image"
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$(cat GIT_COMMIT_ID)
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest
