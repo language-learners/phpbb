@@ -9,7 +9,8 @@ RUN apt-get update && \
 # Add the forum source code to the image.  This will be overridden by a
 # Docker volume mounted on /var/www/html/ and pointing to ./phpBB when run
 # locally, but we'll use this code when building images for the server.
-ADD ./phpBB/ composer.phar config-include.php /var/www/html/
+ADD ./phpBB/ composer.phar /var/www/html/
+ADD config-include.php /var/www/html/config.php
 RUN mv /var/www/html/install /var/www/html/install-hidden && \
     chmod +x composer.phar && \
     ./composer.phar install && \
