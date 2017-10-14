@@ -18,6 +18,13 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
+// Handle X-Forwarded-For from nginx as per the instructions at
+// https://www.phpbb.com/community/viewtopic.php?f=46&t=2133487
+if(!empty($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['SERVER_ADDR'] == $_SERVER['REMOTE_ADDR'])
+{
+     $_SERVER['REMOTE_ADDR'] = htmlspecialchars((string) $_SERVER['HTTP_X_FORWARDED_FOR']);
+}
+
 // Report all errors, except notices and deprecation messages
 if (!defined('E_DEPRECATED'))
 {
