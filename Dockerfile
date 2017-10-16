@@ -1,10 +1,12 @@
-FROM php:5.4-apache
+FROM php:5.6-apache
 
 # Install all the packages that we'll need.
 RUN apt-get update && \
     apt-get install -y git zlib1g-dev imagemagick libjpeg-dev libpng-dev \
 	    mysql-client && \
 	docker-php-ext-install zip mysql mysqli gd
+
+ADD apache2/mpm_prefork.conf /etc/apache2/mods-enabled/
 
 # Add the forum source code to the image.  This will be overridden by a
 # Docker volume mounted on /var/www/html/ and pointing to ./phpBB when run
