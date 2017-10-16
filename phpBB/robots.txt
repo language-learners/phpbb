@@ -1,3 +1,8 @@
+User-agent: *
+# This is non-standard, but it will slow down a bunch of major crawlers.
+# Google ignores it, but they're not the biggest problem.
+Crawl-delay: 10
+
 # This has a massively high crawl-rate, and it keeps breaking the site.
 User-agent: Yandex
 Disallow: /
