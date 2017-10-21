@@ -1,6 +1,22 @@
 User-agent: *
+# Block various files that shouldn't be indexed.
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /language/
+Disallow: /templates/
+Disallow: /common.php
+Disallow: /config.php
+Disallow: /groupcp.php
+Disallow: /memberlist.php
+Disallow: /modcp.php
+Disallow: /posting.php
+Disallow: /profile.php
+Disallow: /privmsg.php
+Disallow: /ucp.php
+Disallow: /viewonline.php
+Disallow: /search.php
 # This is non-standard, but it will slow down a bunch of major crawlers.
-# Google ignores it, but they're not the biggest problem.
+# Google ignores it, but we can fix them through Google's webmaster tools.
 Crawl-delay: 10
 
 # This has a massively high crawl-rate, and it keeps breaking the site.
